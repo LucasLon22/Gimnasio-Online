@@ -1,22 +1,31 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import ListasDeUsuarios from './components/ListasDeUsuarios';
+import Home from './components/Home';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import AgregarUsuarios from './components/AgregarUsuarios';
+import EditarUsuario from './components/EditarUsuario';
+
+
+
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      
+
+        <BrowserRouter>
+          <Routes>
+
+            <Route path='/' element={<Home/>} exact></Route>
+            <Route path='/listadeusuarios' element={<ListasDeUsuarios/>} exact></Route>
+            <Route path='/agregarusuario' element={<AgregarUsuarios />} exact></Route>
+            <Route path='/editarusuario/:codigo' element={<EditarUsuario />} exact></Route>
+          </Routes>
+        </BrowserRouter>
+        
       </header>
     </div>
   );
